@@ -9,7 +9,7 @@ import {
   isEqual as isEqualDates,
   startOfMonth,
   endOfMonth,
-  eachDay,
+  eachDayOfInterval,
   addWeeks,
   startOfWeek,
   endOfWeek,
@@ -99,7 +99,10 @@ class Kalendaryo extends Component {
 
   getDaysInMonth = (date = this.state.date) => {
     if (!isDate(date)) throw new Error('Value is not an instance of Date')
-    return eachDay(startOfMonth(date), endOfMonth(date)).map(dateToDayObjects)
+    return eachDayOfInterval({
+      start: startOfMonth(date),
+      end: endOfMonth(date)
+    }).map(dateToDayObjects)
   }
 
   getWeeksInMonth = (date = this.state.date, weekStartsOn = this.props.startWeekAt) => {
@@ -117,7 +120,9 @@ class Kalendaryo extends Component {
     const lastDayOfFirstWeek = endOfWeek(firstDayOfMonth, weekOptions)
 
     const getWeeks = (startDay, endDay, weekArray = []) => {
-      const week = eachDay(startDay, endDay).map(dateToDayObjects)
+      const week = eachDayOfInterval({ start: startDay, end: endDay }).map(
+        dateToDayObjects
+      )
       const weeks = [...weekArray, week]
       const nextWeek = addWeeks(startDay, 1)
 

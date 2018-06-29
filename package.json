@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/geeofree/kalendaryo#readme",
   "peerDependencies": {
-    "date-fns": "1.x",
+    "date-fns": "^2.0.0-alpha.9",
     "prop-types": ">=15",
     "react": ">=0.14.x"
   },
@@ -44,7 +44,7 @@
     "babel-preset-stage-1": "6.24.1",
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "2.1.0",
-    "date-fns": "1.29.0",
+    "date-fns": "^2.0.0-alpha.9",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.19.1",
@@ -72,5 +72,9 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
